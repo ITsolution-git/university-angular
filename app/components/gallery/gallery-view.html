@@ -1,0 +1,341 @@
+<div class="main-content">
+  <!-- Center pane begins -->
+  <section class="center-pane">
+    <div class="container">
+      <div ng-if="galleryError">
+        <h3><i class="fa fa-exclamation-circle red-txt" aria-hidden="true"></i> Gallery not found.</h3>
+      </div>
+      <h1 ng-if="gallery.title" class="article-title">
+        {{ gallery.title }}
+      </h1>
+      <article class="article-content">
+        <h2 ng-if="gallery.subHeading" class="text-center">
+          {{ gallery.subHeading }}
+        </h2>
+        <div class="author-details">
+          <div class="row">
+            <div class="col-md-6 col-xs-6">
+              <img ng-src="{{ gallery.writerImage }}" ng-if="gallery.writerId" ng-click="goToWritersProfile(gallery.writerId)" class="img-circle author-img " class="object-fit-cover">
+              <h5>
+                <a ng-if="gallery.writerId" ui-sref="profile({id: '{{ gallery.writerId }}'})">{{ gallery.writer }}</a> <span>{{ gallery.date }}</span>
+              </h5>
+            </div>
+            <div class="col-md-6 col-xs-6 text-right">
+              <a class="comments-count" href="#comments" ng-if="gallery.slug">
+                <span class="fb-comments-count" data-href="{{ domainName }}/gallery/{{ gallery.slug }}"></span> <md-icon md-svg-src="assets/img/icons/rectangular-speech-balloon.svg" class="Comments" />
+              </a>
+              <div class="social-links">
+                <a href="#" ng-if="gallery.slug"
+                socialshare
+                socialshare-provider="email"
+                socialshare-trigger="click"
+                socialshare-subject="{{ gallery.title }}"
+                socialshare-to=""
+                socialshare-body="{{ domainName }}/gallery/{{ gallery.slug }}">
+                <md-icon md-svg-src="assets/img/icons/mail-icn.svg"></md-icon>
+                </a>
+                <a href="#" ng-if="gallery.slug"
+                socialshare
+                socialshare-provider="facebook"
+                socialshare-text="{{ gallery.title }}"
+                socialshare-url="{{ domainName }}/gallery/{{gallery.slug}}">
+                <md-icon md-svg-src="assets/img/icons/unipaper-facebook.svg"></md-icon>
+                </a>
+                <a href="#" ng-if="gallery.slug"
+                socialshare
+                socialshare-provider="twitter"
+                socialshare-text="{{ gallery.title }}"
+                socialshare-url="{{ domainName }}/gallery/{{ gallery.slug }}">
+                <md-icon md-svg-src="assets/img/icons/unipaper-twitter.svg"></md-icon>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img ng-if="gallery.image" ng-src="{{ gallery.image }}" class="article-img">
+        <div ng-if="gallery.content" ng-bind-html="gallery.content">
+          <!-- Markdown here -->
+        </div>
+        <div class="gallery-cont" ng-if="gallery">
+        	<div class="gallery-item" ng-repeat="anItem in gallery.galleryItems">
+            <img class="article-img" ng-src="{{ anItem.image }}" class="object-fit-cover">
+            <div class="row">
+              <div class="visible-xs col-xs-5">
+                <h5>Share this Image</h5>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-7 text-right">
+                <div class="social-links">
+                <a href="#" ng-if="anItem" ng-if="gallery.slug"
+                socialshare
+                socialshare-provider="email"
+                socialshare-trigger="click"
+                socialshare-subject="{{ gallery.title }}"
+                socialshare-to=""
+                socialshare-body="http:{{ anItem.image }}">
+                <md-icon md-svg-src="assets/img/icons/mail-icn.svg"></md-icon>
+                </a>
+                <a href="#" ng-if="anItem" ng-if="gallery.id"
+                socialshare
+                socialshare-provider="facebook"
+                socialshare-text="{{ gallery.title }}"
+                socialshare-url="http:{{ anItem.image }}">
+                <md-icon md-svg-src="assets/img/icons/unipaper-facebook.svg"></md-icon>
+                </a>
+                <a href="#" ng-if="anItem" ng-if="gallery.id"
+                socialshare
+                socialshare-provider="twitter"
+                socialshare-text="{{ gallery.title }}"
+                socialshare-url="http:{{ anItem.image }}">
+                <md-icon md-svg-src="assets/img/icons/unipaper-twitter.svg"></md-icon>
+                </a>
+                <a href="#" ng-if="anItem" ng-if="gallery.id"
+                socialshare
+                socialshare-provider="whatsapp"
+                socialshare-text="{{ gallery.title }}"
+                socialshare-hashtags="angularjs, angular-socialshare"
+                socialshare-url="http:{{ anItem.image }}"
+                class="visible-xs"
+                >
+                <md-icon md-svg-src="assets/img/icons/unipaper-whatsApp.svg"></md-icon>
+                </a>
+              </div>
+              </div>
+              <div class="col-md-9 col-sm-9 col-xs-12"><span>{{ anItem.contentBody }}</span></div>
+            </div>
+          </div>
+        </div>
+        <!--{{ article.content }}-->
+        <div class="visible-xs">
+          <div id='div-gpt-ad-1473939867799-1' style='height:600px; width:300px;margin:0 auto;'>
+            <!-- MPU ad here -->
+          </div>
+          <div class="horz-divider"></div>
+        </div>
+        <!-- Related Stories -->
+        <section class="related-stories-panel" ng-if="relatedStoriesContent && gallery">
+          <h2 class="text-center">Related Stories</h2>
+          <div class="story-tags" ng-if="relatedTags">
+            <a ng-repeat="aTag in relatedTags" ui-sref="tag-results({tag: '{{ aTag }}'})" ng-bind-html="aTag">
+          </div>
+          <div class="story-items">
+            <div class="row">
+              <div class="col-md-3 col-sm-3 col-xs-12" ng-if="relatedStoriesContent.horizontalModuleWithoutImage1.id">
+                <div class="vertical-module sports">
+                  <a ng-if="relatedStoriesContent.horizontalModuleWithoutImage1.slug" ui-sref="{{ relatedStoriesContent.horizontalModuleWithoutImage1.type }}{{ relatedStoriesContent.horizontalModuleWithoutImage1.slug ? '({slug: relatedStoriesContent.horizontalModuleWithoutImage1.slug })' : '' }}">
+                    <div class="headline">
+                      <div class="headline-text ng-binding">
+                        {{ relatedStoriesContent.horizontalModuleWithoutImage1.headline }}
+                      </div>
+                      <div class="writer-and-date-text ng-binding">
+                        {{ relatedStoriesContent.horizontalModuleWithoutImage1.writerAndDate }}
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-12" ng-if="relatedStoriesContent.horizontalModule1.id">
+                <div class="vertical-module with-image {{ relatedStoriesContent.horizontalModule1.image === '' ? 'module-without-image' : '' }}">
+                  <a ng-if="relatedStoriesContent.horizontalModule1.slug" ui-sref="{{ relatedStoriesContent.horizontalModule1.type }}{{ relatedStoriesContent.horizontalModule1.slug ? '({slug: relatedStoriesContent.horizontalModule1.slug })' : '' }}">
+                    <div class="headline col-xs-7 col-sm-12 {{ relatedStoriesContent.horizontalModule1.image === '' ? categoryType : '' }}">
+                      <div class="headline-text ng-binding">
+                        {{ relatedStoriesContent.horizontalModule1.headline }}
+                      </div>
+                      <div class="writer-and-date-text ng-binding">
+                        {{ relatedStoriesContent.horizontalModule1.writerAndDate }}
+                      </div>
+                    </div>
+                    <div class="article-image col-xs-5 col-sm-12">
+                      <img ng-src="{{ relatedStoriesContent.horizontalModule1.image }}" class="object-fit-cover">
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-12" ng-if="relatedStoriesContent.horizontalModuleWithoutImage2.id">
+                <div class="vertical-module entertainment">
+                  <a ng-if="relatedStoriesContent.horizontalModuleWithoutImage1.slug" ui-sref="{{ relatedStoriesContent.horizontalModuleWithoutImage1.type }}{{ relatedStoriesContent.horizontalModuleWithoutImage1.slug ? '({slug: relatedStoriesContent.horizontalModuleWithoutImage1.slug })' : '' }}">
+                    <div class="headline">
+                      <div class="headline-text ng-binding">
+                        {{ relatedStoriesContent.horizontalModuleWithoutImage2.headline }}
+                      </div>
+                      <div class="writer-and-date-text ng-binding">
+                        {{ relatedStoriesContent.horizontalModuleWithoutImage2.writerAndDate }}
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-12" ng-if="relatedStoriesContent.horizontalModule2.id">
+                <div class="vertical-and-no-image-module-container">
+                  <div class="vertical-module with-image {{ relatedStoriesContent.horizontalModule2.image === '' ? 'module-without-image' : '' }}">
+                    <a ng-if="relatedStoriesContent.horizontalModule2.slug" ui-sref="{{ relatedStoriesContent.horizontalModule2.type }}{{ relatedStoriesContent.horizontalModule2.slug ? '({slug: relatedStoriesContent.horizontalModule2.slug })' : '' }}">
+                      <div class="headline col-xs-7 col-sm-12 {{ relatedStoriesContent.horizontalModule2.image === '' ? categoryType : '' }}">
+                        <div class="headline-text ng-binding">
+                          {{ relatedStoriesContent.horizontalModule2.headline }}
+                        </div>
+                        <div class="writer-and-date-text ng-binding">
+                          {{ relatedStoriesContent.horizontalModule2.writerAndDate }}
+                        </div>
+                      </div>
+                      <div class="article-image col-xs-5 col-sm-12">
+                        <img ng-src="{{ relatedStoriesContent.horizontalModule2.image }}" class="object-fit-cover">
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- / Related Stories -->
+
+        <!-- Facebook Comments -->
+        <div class="fb-comments-panel" id="comments" ng-if="gallery">
+          <h2 class="text-center">Comments</h2>
+          <div facebook-comments page-href="{{ domainName }}/gallery/{{ gallery.id }}" numposts="2">
+
+          </div>
+        </div>
+        <!-- / Facebook Comments -->
+      </article>
+    </div>
+  </section>
+  <!-- Center pane ends -->
+
+  <!-- Right pane begins -->
+  <aside class="right-pane">
+    <div class="container">
+      <div class="hidden-xs">
+        <div id='div-gpt-ad-1473939867799-0' style='height:600px; width:300px;margin:0 auto;'>
+          <!-- HPU ad here -->
+        </div>
+      </div>
+      <div class="container-fluid top-stories-content">
+        <div class="visible-xs">
+          <div class="vertical-rectangle-ad">
+            <div id='div-gpt-ad-1473939867799-3' style='height:300px; width:250px;margin:0 auto;'>
+              <!-- HPU Ad here -->
+            </div>
+          </div>
+        </div>
+        <div class="top-stories-header">
+          Most Popular
+        </div>
+        <div class="container-fluid horizontal-module {{ topStoriesContent.horizontalModule1.image === '' ? 'module-without-image' : '' }}" ng-if="topStoriesContent.horizontalModule1.id">
+          <a ng-if="topStoriesContent.horizontalModule1.slug" ui-sref="{{ topStoriesContent.horizontalModule1.type }}{{ topStoriesContent.horizontalModule1.slug ? '({slug: topStoriesContent.horizontalModule1.slug })' : '' }}">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-7 headline">
+              <div class="headline-text">
+                {{ topStoriesContent.horizontalModule1.headline }}
+              </div>
+              <div class="writer-and-date-text">
+                {{ topStoriesContent.horizontalModule1.writerAndDate }}
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-5 article-image-container">
+              <div class="article-image">
+                <img ng-src="{{ topStoriesContent.horizontalModule1.image }}" class="object-fit-cover"/>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="container-fluid horizontal-module {{ topStoriesContent.horizontalModule2.image === '' ? 'module-without-image' : '' }}" ng-if="topStoriesContent.horizontalModule2.id">
+          <a ng-if="topStoriesContent.horizontalModule2.slug" ui-sref="{{ topStoriesContent.horizontalModule2.type }}{{ topStoriesContent.horizontalModule2.slug ? '({slug: topStoriesContent.horizontalModule2.slug })' : '' }}">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-7 headline">
+              <div class="headline-text">
+                {{ topStoriesContent.horizontalModule2.headline }}
+              </div>
+              <div class="writer-and-date-text">
+                {{ topStoriesContent.horizontalModule2.writerAndDate }}
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-5 article-image-container">
+              <div class="article-image">
+                <img ng-src="{{ topStoriesContent.horizontalModule2.image }}" class="object-fit-cover"/>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="container-fluid horizontal-module {{ topStoriesContent.horizontalModule3.image === '' ? 'module-without-image' : '' }}" ng-if="topStoriesContent.horizontalModule3.id">
+          <a ng-if="topStoriesContent.horizontalModule3.slug" ui-sref="{{ topStoriesContent.horizontalModule3.type }}{{ topStoriesContent.horizontalModule3.slug ? '({slug: topStoriesContent.horizontalModule3.slug })' : '' }}">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-7 headline">
+              <div class="headline-text">
+                {{ topStoriesContent.horizontalModule3.headline }}
+              </div>
+              <div class="writer-and-date-text">
+                {{ topStoriesContent.horizontalModule3.writerAndDate }}
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-5 article-image-container">
+              <div class="article-image">
+                <img ng-src="{{ topStoriesContent.horizontalModule3.image }}" class="object-fit-cover"/>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="container-fluid horizontal-module {{ topStoriesContent.horizontalModule4.image === '' ? 'module-without-image' : '' }}" ng-if="topStoriesContent.horizontalModule4.id">
+          <a ng-if="topStoriesContent.horizontalModule4.slug" ui-sref="{{ topStoriesContent.horizontalModule4.type }}{{ topStoriesContent.horizontalModule4.slug ? '({slug: topStoriesContent.horizontalModule4.slug })' : '' }}">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-7 headline">
+              <div class="headline-text">
+                {{ topStoriesContent.horizontalModule4.headline }}
+              </div>
+              <div class="writer-and-date-text">
+                {{ topStoriesContent.horizontalModule4.writerAndDate }}
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-5 article-image-container">
+              <div class="article-image">
+                <img ng-src="{{ topStoriesContent.horizontalModule4.image }}" class="object-fit-cover"/>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="hidden-xs">
+          <div id='div-gpt-ad-1473939867799-2' style='height:250px; width:300px;margin: 0 auto;'>
+            <!-- MPU ad here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <!-- Right pane ends -->
+</div>
+
+<!-- Mobile Share Nav -->
+
+<div class="share-navbar" id="mob-main-nav">
+  <h2>Share this Gallery</h2>
+  <div class="social-links pull-right">
+    <img src="assets/img/icons/top-icn-share.png" alt="" class="top-icn" ng-click="scroll()">
+      <a href="#" ng-if="gallery.slug"
+        socialshare
+        socialshare-provider="email"
+        socialshare-trigger="click"
+        socialshare-subject="{{ gallery.title }}"
+        socialshare-to=""
+        socialshare-body="{{ domainName }}/gallery/{{ gallery.slug }}">
+        <md-icon md-svg-src="assets/img/icons/mail-icn.svg"></md-icon>
+      </a>
+      <a href="#" ng-if="gallery.slug"
+        socialshare
+        socialshare-provider="facebook"
+        socialshare-text="{{ gallery.title }}"
+        socialshare-url="{{ domainName }}/gallery/{{ gallery.slug }}">
+        <md-icon md-svg-src="assets/img/icons/unipaper-facebook.svg"></md-icon>
+      </a>
+      <a href="#" ng-if="gallery.slug"
+        socialshare
+        socialshare-provider="twitter"
+        socialshare-text="{{ gallery.title }}"
+        socialshare-url="{{ domainName }}/gallery/{{ gallery.slug }}">
+        <md-icon md-svg-src="assets/img/icons/unipaper-twitter.svg"></md-icon>
+      </a>
+      <a href="#"
+        socialshare
+        socialshare-provider="whatsapp" ng-if="gallery.slug"
+        socialshare-text="{{ gallery.title }}"
+        socialshare-url="{{ domainName }}/gallery/{{ gallery.slug }}"
+        class="visible-xs"
+        >
+        <md-icon md-svg-src="assets/img/icons/unipaper-whatsApp.svg"></md-icon>
+      </a>
+  </div>
+</div>

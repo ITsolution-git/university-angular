@@ -1,0 +1,288 @@
+<div class="main-content">
+  <!-- Center pane begins -->
+  <section class="center-pane">
+  	<section class="container writer-profile">
+      <div ng-if="writerError">
+        <h3><i class="fa fa-exclamation-circle red-txt" aria-hidden="true"></i> Writer not found.</h3>
+      </div>
+  		<div class="writer-profile-cont" ng-if="writer">
+  			<div class="avatar">
+  				<img ng-src="{{ writer.image }}" alt="{{ writer.name }}" class="object-fit-cover">
+  			</div>
+  			<div class="info">
+  				<div class="title">{{ writer.name }}</div>
+  				<div class="desc">
+  					{{ writer.university }}
+  					<a ng-if="writer.twitterUrl" href="{{ writer.twitterUrl }}">{{ writer.twitterUrl }}</a>
+  				</div>
+  			</div>
+  			<div ng-bind-html="writer.about">
+          <!-- Markdown here -->
+        </div>
+  		</div>
+      <section class="related-stories-panel">
+        <h2 class="text-center">Related Stories</h2>
+        <div class="story-tags">
+          <a ng-repeat="aTag in relatedTags" ui-sref="tag-results({tag: '{{ aTag }}'})" ng-bind-html="aTag"></a>
+        </div>
+        <div class="story-items">
+          <div class="row">
+            <article class="col-md-3 col-sm-3 col-xs-12" ng-if="relatedStoriesContent.verticalModule1.id">
+              <div class="vertical-module with-image {{ relatedStoriesContent.verticalModule1.image === '' ? 'module-without-image' : '' }}">
+                <a ng-if="relatedStoriesContent.verticalModule1.slug" ui-sref="{{ relatedStoriesContent.verticalModule1.type }}{{ relatedStoriesContent.verticalModule1.slug ? '({slug: relatedStoriesContent.verticalModule1.slug })' : '' }}">
+                  <div class="headline col-xs-7 col-sm-12 {{ relatedStoriesContent.verticalModule1.image === '' ? categoryType : '' }}">
+                    <div class="headline-text ng-binding">
+                      {{ relatedStoriesContent.verticalModule1.headline }}
+                    </div>
+                    <div class="writer-and-date-text ng-binding">
+                      {{ relatedStoriesContent.verticalModule1.writerAndDate }}
+                    </div>
+                  </div>
+                  <div class="article-image col-xs-5 col-sm-12">
+                    <img ng-src="{{ relatedStoriesContent.verticalModule1.image }}" class="object-fit-cover" alt="{{ relatedStoriesContent.verticalModule1.imageDescription }}" />
+                  </div>
+                </a>
+              </div>
+            </article>
+            <article class="col-md-3 col-sm-3 col-xs-12" ng-if="relatedStoriesContent.verticalModule2.id">
+              <div class="vertical-module with-image {{ relatedStoriesContent.verticalModule2.image === '' ? 'module-without-image' : '' }}">
+                <a ng-if="relatedStoriesContent.verticalModule2.slug" ui-sref="{{ relatedStoriesContent.verticalModule2.type }}{{ relatedStoriesContent.verticalModule2.slug ? '({slug: relatedStoriesContent.verticalModule2.slug })' : '' }}">
+                  <div class="headline col-xs-7 col-sm-12 {{ relatedStoriesContent.verticalModule2.image === '' ? categoryType : '' }}">
+                    <div class="headline-text ng-binding">
+                      {{ relatedStoriesContent.verticalModule2.headline }}
+                    </div>
+                    <div class="writer-and-date-text ng-binding">
+                      {{ relatedStoriesContent.verticalModule2.writerAndDate }}
+                    </div>
+                  </div>
+                  <div class="article-image col-xs-5 col-sm-12">
+                    <img ng-src="{{ relatedStoriesContent.verticalModule2.image }}" class="object-fit-cover" alt="{{ relatedStoriesContent.verticalModule2.imageDescription }}" />
+                  </div>
+                </a>
+              </div>
+            </article>
+            <article class="col-md-3 col-sm-3 col-xs-12" ng-if="relatedStoriesContent.verticalModule3.id">
+              <div class="vertical-module with-image {{ relatedStoriesContent.verticalModule3.image === '' ? 'module-without-image' : '' }}">
+                <a ng-if="relatedStoriesContent.verticalModule1.slug" ui-sref="{{ relatedStoriesContent.verticalModule3.type }}{{ relatedStoriesContent.verticalModule3.slug ? '({slug: relatedStoriesContent.verticalModule3.slug })' : '' }}">
+                  <div class="headline col-xs-7 col-sm-12 {{ relatedStoriesContent.verticalModule3.image === '' ? categoryType : '' }}">
+                    <div class="headline-text ng-binding">
+                      {{ relatedStoriesContent.verticalModule3.headline }}
+                    </div>
+                    <div class="writer-and-date-text ng-binding">
+                      {{ relatedStoriesContent.verticalModule3.writerAndDate }}
+                    </div>
+                  </div>
+                  <div class="article-image col-xs-5 col-sm-12">
+                    <img ng-src="{{ relatedStoriesContent.verticalModule3.image }}" class="object-fit-cover" alt="{{ relatedStoriesContent.verticalModule3.imageDescription }}" />
+                  </div>
+                </a>
+              </div>
+            </article>
+            <article class="col-md-3 col-sm-3 col-xs-12" ng-if="relatedStoriesContent.verticalModule4.id">
+              <div class="vertical-and-no-image-module-container">
+                <div class="vertical-module with-image {{ relatedStoriesContent.verticalModule4.image === '' ? 'module-without-image' : '' }}">
+                  <a ng-if="relatedStoriesContent.verticalModule4.slug" ui-sref="{{ relatedStoriesContent.verticalModule4.type }}{{ relatedStoriesContent.verticalModule4.slug ? '({slug: relatedStoriesContent.verticalModule4.slug })' : '' }}">
+                    <div class="headline col-xs-7 col-sm-12 {{ relatedStoriesContent.verticalModule4.image === '' ? categoryType : '' }}">
+                      <div class="headline-text ng-binding">
+                        {{ relatedStoriesContent.verticalModule4.headline }}
+                      </div>
+                      <div class="writer-and-date-text ng-binding">
+                        {{ relatedStoriesContent.verticalModule4.writerAndDate }}
+                      </div>
+                    </div>
+                    <div class="article-image col-xs-5 col-sm-12">
+                      <img ng-src="{{ relatedStoriesContent.verticalModule4.image }}" class="object-fit-cover" alt="{{ relatedStoriesContent.verticalModule4.imageDescription }}" />
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="story-items">
+          <div class="row">
+            <article class="col-md-3 col-sm-3 col-xs-12" ng-if="relatedStoriesContent.verticalModule5.id">
+              <div class="vertical-module with-image {{ relatedStoriesContent.verticalModule5.image === '' ? 'module-without-image' : '' }}">
+                <a ng-if="relatedStoriesContent.verticalModule5.slug" ui-sref="{{ relatedStoriesContent.verticalModule5.type }}{{ relatedStoriesContent.verticalModule5.slug ? '({slug: relatedStoriesContent.verticalModule6.slug })' : '' }}">
+                  <div class="headline col-xs-7 col-sm-12 {{ relatedStoriesContent.verticalModule5.image === '' ? categoryType : '' }}">
+                    <div class="headline-text ng-binding">
+                      {{ relatedStoriesContent.verticalModule5.headline }}
+                    </div>
+                    <div class="writer-and-date-text ng-binding">
+                      {{ relatedStoriesContent.verticalModule5.writerAndDate }}
+                    </div>
+                  </div>
+                  <div class="article-image col-xs-5 col-sm-12">
+                    <img ng-src="{{ relatedStoriesContent.verticalModule5.image }}" class="object-fit-cover" alt="{{ relatedStoriesContent.verticalModule5.imageDescription }}" />
+                  </div>
+                </a>
+              </div>
+            </article>
+            <article class="col-md-3 col-sm-3 col-xs-12" ng-if="relatedStoriesContent.verticalModule6.id">
+              <div class="vertical-module with-image {{ relatedStoriesContent.verticalModule6.image === '' ? 'module-without-image' : '' }}">
+                <a ng-if="relatedStoriesContent.verticalModule6.slug" ui-sref="{{ relatedStoriesContent.verticalModule6.type }}{{ relatedStoriesContent.verticalModule6.slug ? '({slug: relatedStoriesContent.verticalModule6.slug })' : '' }}">
+                  <div class="headline col-xs-7 col-sm-12 {{ relatedStoriesContent.verticalModule6.image === '' ? categoryType : '' }}">
+                    <div class="headline-text ng-binding">
+                      {{ relatedStoriesContent.verticalModule6.headline }}
+                    </div>
+                    <div class="writer-and-date-text ng-binding">
+                      {{ relatedStoriesContent.verticalModule6.writerAndDate }}
+                    </div>
+                  </div>
+                  <div class="article-image col-xs-5 col-sm-12">
+                    <img ng-src="{{ relatedStoriesContent.verticalModule6.image }}" class="object-fit-cover" alt="{{ relatedStoriesContent.verticalModule6.imageDescription }}" />
+                  </div>
+                </a>
+              </div>
+            </article>
+            <article class="col-md-3 col-sm-3 col-xs-12" ng-if="relatedStoriesContent.verticalModule7.id">
+              <div class="vertical-module with-image {{ relatedStoriesContent.verticalModule7.image === '' ? 'module-without-image' : '' }}">
+                <a ng-if="relatedStoriesContent.verticalModule7.slug" ui-sref="{{ relatedStoriesContent.verticalModule7.type }}{{ relatedStoriesContent.verticalModule3.slug ? '({slug: relatedStoriesContent.verticalModule7.slug })' : '' }}">
+                  <div class="headline col-xs-7 col-sm-12 {{ relatedStoriesContent.verticalModule7.image === '' ? categoryType : '' }}">
+                    <div class="headline-text ng-binding">
+                      {{ relatedStoriesContent.verticalModule7.headline }}
+                    </div>
+                    <div class="writer-and-date-text ng-binding">
+                      {{ relatedStoriesContent.verticalModule7.writerAndDate }}
+                    </div>
+                  </div>
+                  <div class="article-image col-xs-5 col-sm-12">
+                    <img ng-src="{{ relatedStoriesContent.verticalModule7.image }}" class="object-fit-cover" alt="{{ relatedStoriesContent.verticalModule7.imageDescription }}" />
+                  </div>
+                </a>
+              </div>
+            </article>
+            <article class="col-md-3 col-sm-3 col-xs-12" ng-if="relatedStoriesContent.verticalModule8.id">
+              <div class="vertical-and-no-image-module-container">
+                <div class="vertical-module with-image {{ relatedStoriesContent.verticalModule8.image === '' ? 'module-without-image' : '' }}">
+                  <a ng-if="relatedStoriesContent.verticalModule8.slug" ui-sref="{{ relatedStoriesContent.verticalModule8.type }}{{ relatedStoriesContent.verticalModule8.slug ? '({slug: relatedStoriesContent.verticalModule8.slug })' : '' }}">
+                    <div class="headline col-xs-7 col-sm-12 {{ relatedStoriesContent.verticalModule8.image === '' ? categoryType : '' }}">
+                      <div class="headline-text ng-binding">
+                        {{ relatedStoriesContent.verticalModule8.headline }}
+                      </div>
+                      <div class="writer-and-date-text ng-binding">
+                        {{ relatedStoriesContent.verticalModule8.writerAndDate }}
+                      </div>
+                    </div>
+                    <div class="article-image col-xs-5 col-sm-12">
+                      <img ng-src="{{ relatedStoriesContent.verticalModule8.image }}" class="object-fit-cover" alt="{{ relatedStoriesContent.verticalModule8.imageDescription }}" />
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div ng-bind-html="loadMoreContent">
+          <!-- Load more content here -->
+        </div>
+      </section>
+      
+      <div class="text-center"><md-button ng-if="loadMoreCount !== 0" class="btn btn-border" ng-click="loadMore()">LOAD MORE</md-button></div>
+  	</section>
+  </section>
+  <!-- Center pane ends -->
+
+  <!-- Right pane begins -->
+  <aside class="right-pane">
+    <div class="container">
+      <div class="hidden-xs">
+        <div id='div-gpt-ad-1473939867799-0' style='height:600px; width:300px;margin:0 auto;'>
+          <!-- HPU ad here -->
+        </div>
+      </div>
+      <div class="container-fluid top-stories-content">
+        <div class="vertical-rectangle-ad visible-xs">
+        <br>
+        <div id='div-gpt-ad-1473939867799-1' style='height:600px; max-width:300px;margin: 0 auto;' >
+          <!-- HPU Ad here -->
+        </div>
+        <div class="horz-divider"></div>
+        </div>
+        <br>
+        <h2 class="top-stories-header">
+          Most Popular
+        </h2>
+        <article class="container-fluid horizontal-module {{ topStoriesContent.horizontalModule1.image === '' ? 'module-without-image' : '' }}" ng-if="topStoriesContent.horizontalModule1.id">
+          <a ng-if="topStoriesContent.horizontalModule1.slug" ui-sref="{{ topStoriesContent.horizontalModule1.type }}{{ topStoriesContent.horizontalModule1.slug ? '({slug: topStoriesContent.horizontalModule1.slug })' : '' }}">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-7 headline">
+              <div class="headline-text">
+                {{ topStoriesContent.horizontalModule1.headline }}
+              </div>
+              <div class="writer-and-date-text">
+                {{ topStoriesContent.horizontalModule1.writerAndDate }}
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-5 article-image-container">
+              <div class="article-image">
+                <img ng-src="{{ topStoriesContent.horizontalModule1.image }}" class="object-fit-cover" alt="{{ topStoriesContent.horizontalModule1.imageDescription }}" />
+              </div>
+            </div>
+          </a>
+        </article>
+        <article class="container-fluid horizontal-module {{ topStoriesContent.horizontalModule2.image === '' ? 'module-without-image' : '' }}" ng-if="topStoriesContent.horizontalModule2.id">
+          <a ng-if="topStoriesContent.horizontalModule2.slug" ui-sref="{{ topStoriesContent.horizontalModule2.type }}{{ topStoriesContent.horizontalModule2.slug ? '({slug: topStoriesContent.horizontalModule2.slug })' : '' }}">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-7 headline">
+              <div class="headline-text">
+                {{ topStoriesContent.horizontalModule2.headline }}
+              </div>
+              <div class="writer-and-date-text">
+                {{ topStoriesContent.horizontalModule2.writerAndDate }}
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-5 article-image-container">
+              <div class="article-image">
+                <img ng-src="{{ topStoriesContent.horizontalModule2.image }}" class="object-fit-cover" alt="{{ topStoriesContent.horizontalModule2.imageDescription }}" />
+              </div>
+            </div>
+          </a>
+        </article>
+        <article class="container-fluid horizontal-module {{ topStoriesContent.horizontalModule3.image === '' ? 'module-without-image' : '' }}" ng-if="topStoriesContent.horizontalModule3.id">
+          <a ng-if="topStoriesContent.horizontalModule3.slug" ui-sref="{{ topStoriesContent.horizontalModule3.type }}{{ topStoriesContent.horizontalModule3.slug ? '({slug: topStoriesContent.horizontalModule3.slug })' : '' }}">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-7 headline">
+              <div class="headline-text">
+                {{ topStoriesContent.horizontalModule3.headline }}
+              </div>
+              <div class="writer-and-date-text">
+                {{ topStoriesContent.horizontalModule3.writerAndDate }}
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-5 article-image-container">
+              <div class="article-image">
+                <img ng-src="{{ topStoriesContent.horizontalModule3.image }}" class="object-fit-cover" alt="{{ topStoriesContent.horizontalModule3.imageDescription }}" />
+              </div>
+            </div>
+          </a>
+        </article>
+        <article class="container-fluid horizontal-module {{ topStoriesContent.horizontalModule4.image === '' ? 'module-without-image' : '' }}" ng-if="topStoriesContent.horizontalModule4.id">
+          <a ng-if="topStoriesContent.horizontalModule4.slug" ui-sref="{{ topStoriesContent.horizontalModule4.type }}{{ topStoriesContent.horizontalModule4.slug ? '({slug: topStoriesContent.horizontalModule4.slug })' : '' }}">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-7 headline">
+              <div class="headline-text">
+                {{ topStoriesContent.horizontalModule4.headline }}
+              </div>
+              <div class="writer-and-date-text">
+                {{ topStoriesContent.horizontalModule4.writerAndDate }}
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-5 article-image-container">
+              <div class="article-image">
+                <img ng-src="{{ topStoriesContent.horizontalModule4.image }}" class="object-fit-cover" alt="{{ topStoriesContent.horizontalModule4.imageDescription }}" />
+              </div>
+            </div>
+          </a>
+        </article>
+        <div class="hidden-xs">
+          <div id='div-gpt-ad-1473939867799-2' style='height:250px; width:300px;margin: 0 auto;'>
+            <!-- MPU ad here -->
+          </div>
+        </div>
+        <div class="visible-xs">
+          <div id='div-gpt-ad-1473939867799-3' style='height:250px; width:300px; margin: 0 auto;'>
+            <!-- MPU ad here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <!-- Right pane ends -->
+</div>

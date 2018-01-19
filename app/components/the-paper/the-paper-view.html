@@ -1,0 +1,143 @@
+<div class="main-content">
+  <!-- Center pane begins -->
+  <section class="center-pane">
+  	<section class="container the-paper">
+      <div class="the-paper-header">
+        <div class="archive">
+          <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <h1>Archive</h1>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-3">
+              <md-button class="ripple" ng-click="showLocationsDropdown($event)" aria-label="showLocationsDropdown">
+              {{ selectedCity.name === undefined ? 'City' : selectedCity.name }} <img src="assets/img/icons/down-arw.png" class="downarw-icn">
+              </md-button>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-3">
+              <md-button class="ripple" ng-click="showYears($event)" aria-label="showYears">
+                <span ng-if="monthYear">{{ monthYear }}</span><img src="assets/img/icons/down-arw.png" class="downarw-icn">
+              </md-button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 ng-if="!paperError" class="the-paper-header text-center">{{ monthYear }}</h2>
+      <div ng-if="!paperError" class="the-paper-cont">
+        <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="aPaper in paperContent">
+          <div class="the-paper-item">
+            <a ng-if="aPaper.url" href="{{ aPaper.url }}" target="_blank">
+              <img ng-src="{{ aPaper.image }}" alt="Paper Name" class="object-fit-cover" />
+               {{ aPaper.city }}
+            </a>
+          </div>
+        </div>
+      </div>
+      <div ng-if="paperError">
+        <h3><i class="fa fa-exclamation-circle red-txt" aria-hidden="true"></i> Nothing found.</h3>
+      </div>
+  	</section>
+  </section>
+  <!-- Center pane ends -->
+
+  <!-- Right pane begins -->
+  <aside class="right-pane">
+    <div class="container">
+      <div class="hidden-xs">
+        <div id='div-gpt-ad-1473939867799-0' style='height:600px; width:300px;margin:0 auto;'>
+          <!-- HPU ad here -->
+        </div>
+      </div>
+      <div class="container-fluid top-stories-content">
+        <div class="vertical-rectangle-ad visible-xs">
+        <div id='div-gpt-ad-1473939867799-1' style='height:600px; max-width:300px;margin: 0 auto;' >
+          <!-- HPU Ad here -->
+        </div>
+        <div class="horz-divider"></div>
+        </div>
+        <br>
+        <h2 class="top-stories-header">
+          Most Popular
+        </h2>
+        <article class="container-fluid horizontal-module {{ topStoriesContent.horizontalModule1.image === '' ? 'module-without-image' : '' }}" ng-if="topStoriesContent.horizontalModule1.id">
+          <a ng-if="topStoriesContent.horizontalModule1.slug" ui-sref="{{ topStoriesContent.horizontalModule1.type }}{{ topStoriesContent.horizontalModule1.slug ? '({slug: topStoriesContent.horizontalModule1.slug })' : '' }}">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-7 headline">
+              <div class="headline-text">
+                {{ topStoriesContent.horizontalModule1.headline }}
+              </div>
+              <div class="writer-and-date-text">
+                {{ topStoriesContent.horizontalModule1.writerAndDate }}
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-5 article-image-container">
+              <div class="article-image">
+                <img ng-src="{{ topStoriesContent.horizontalModule1.image }}" class="object-fit-cover" alt="{{ topStoriesContent.horizontalModule1.imageDescription }}" />
+              </div>
+            </div>
+          </a>
+        </article>
+        <article class="container-fluid horizontal-module {{ topStoriesContent.horizontalModule2.image === '' ? 'module-without-image' : '' }}" ng-if="topStoriesContent.horizontalModule2.id">
+          <a ng-if="topStoriesContent.horizontalModule2.slug" ui-sref="{{ topStoriesContent.horizontalModule2.type }}{{ topStoriesContent.horizontalModule2.slug ? '({slug: topStoriesContent.horizontalModule2.slug })' : '' }}">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-7 headline">
+              <div class="headline-text">
+                {{ topStoriesContent.horizontalModule2.headline }}
+              </div>
+              <div class="writer-and-date-text">
+                {{ topStoriesContent.horizontalModule2.writerAndDate }}
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-5 article-image-container">
+              <div class="article-image">
+                <img ng-src="{{ topStoriesContent.horizontalModule2.image }}" class="object-fit-cover" alt="{{ topStoriesContent.horizontalModule2.imageDescription }}" />
+              </div>
+            </div>
+          </a>
+        </article>
+        <article class="container-fluid horizontal-module {{ topStoriesContent.horizontalModule3.image === '' ? 'module-without-image' : '' }}" ng-if="topStoriesContent.horizontalModule3.id">
+          <a ng-if="topStoriesContent.horizontalModule3.slug" ui-sref="{{ topStoriesContent.horizontalModule3.type }}{{ topStoriesContent.horizontalModule3.slug ? '({slug: topStoriesContent.horizontalModule3.slug })' : '' }}">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-7 headline">
+              <div class="headline-text">
+                {{ topStoriesContent.horizontalModule3.headline }}
+              </div>
+              <div class="writer-and-date-text">
+                {{ topStoriesContent.horizontalModule3.writerAndDate }}
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-5 article-image-container">
+              <div class="article-image">
+                <img ng-src="{{ topStoriesContent.horizontalModule3.image }}" class="object-fit-cover" alt="{{ topStoriesContent.horizontalModule3.imageDescription }}" />
+              </div>
+            </div>
+          </a>
+        </article>
+        <article class="container-fluid horizontal-module {{ topStoriesContent.horizontalModule4.image === '' ? 'module-without-image' : '' }}" ng-if="topStoriesContent.horizontalModule4.id">
+          <a ng-if="topStoriesContent.horizontalModule4.slug" ui-sref="{{ topStoriesContent.horizontalModule4.type }}{{ topStoriesContent.horizontalModule4.slug ? '({slug: topStoriesContent.horizontalModule4.slug })' : '' }}">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-7 headline">
+              <div class="headline-text">
+                {{ topStoriesContent.horizontalModule4.headline }}
+              </div>
+              <div class="writer-and-date-text">
+                {{ topStoriesContent.horizontalModule4.writerAndDate }}
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-5 article-image-container">
+              <div class="article-image">
+                <img ng-src="{{ topStoriesContent.horizontalModule4.image }}" class="object-fit-cover" alt="{{ topStoriesContent.horizontalModule4.imageDescription }}" />
+              </div>
+            </div>
+          </a>
+        </article>
+        <div class="hidden-xs">
+          <div id='div-gpt-ad-1473939867799-2' style='height:250px; width:300px; margin: 0 auto;'>
+            <!-- MPU ad here -->
+          </div>
+        </div>
+        <div class="visible-xs">
+          <div id='div-gpt-ad-1473939867799-3' style='height:250px; width:300px; margin: 0 auto;'>
+            <!-- MPU ad here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <!-- Right pane ends -->
+</div>

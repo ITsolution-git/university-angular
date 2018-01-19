@@ -1,0 +1,372 @@
+<!-- Category header begins -->
+<div class="category-heading {{ categoryType }}">
+  <h1 class="heading-text">
+    {{ categoryType }}
+  </h1>
+</div>
+<!-- Category header ends -->
+<div class="main-content">
+  <!-- Center pane begins -->
+  <section class="center-pane">
+  	<section class="container category-content">
+  		<div class="top-news-content container-fluid">
+  			<article class="col-sm-6 col-md-6 col-lg-6 top-news-left-column main-module {{ categoryContent.mainModule.image === '' ? 'module-without-image' : '' }}" ng-if="categoryContent.mainModule.id">
+       		<a ng-if="categoryContent.mainModule.slug" ui-sref="{{ categoryContent.mainModule.type }}{{ categoryContent.mainModule.slug ? '({slug: categoryContent.mainModule.slug })' : '' }}">
+            <div class="container-fluid headline {{ categoryContent.mainModule.image === '' ? categoryType : '' }}">
+              <div class="headline-text">
+                {{ categoryContent.mainModule.headline }}
+              </div>
+              <div class="writer-and-date-text">
+                {{ categoryContent.mainModule.writerAndDate }}
+              </div>
+            </div>
+            <div class="container-fluid article-image">
+              <img ng-src="{{ categoryContent.mainModule.image }}" class="object-fit-cover" alt="{{ categoryContent.mainModule.imageDescription }}" />
+            </div>
+          </a>
+        </article>
+        <div class="col-sm-6 col-md-6 col-lg-6 top-news-right-column">
+          <div class="container-fluid vertical-and-no-image-module-container" ng-if="categoryContent.verticalModule1.id || categoryContent.verticalModule2.id">
+            <article class="col-sm-6 col-md-6 col-lg-6 col-xs-6 vertical-module {{ categoryContent.verticalModule1.image === '' ? 'module-without-image' : '' }}" ng-if="categoryContent.verticalModule1.id">
+              <a ng-if="categoryContent.verticalModule1.slug" ui-sref="{{ categoryContent.verticalModule1.type }}{{ categoryContent.verticalModule1.slug ? '({slug: categoryContent.verticalModule1.slug })' : '' }}">
+                <div class="container-fluid headline {{ categoryContent.verticalModule1.image === '' ? categoryType : '' }}">
+                  <div class="headline-text">
+                    {{ categoryContent.verticalModule1.headline }}
+                  </div>
+                  <div class="writer-and-date-text">
+                    {{ categoryContent.verticalModule1.writerAndDate }}
+                  </div>
+                </div>
+                <div class="container-fluid article-image">
+                  <img ng-src="{{ categoryContent.verticalModule1.image }}" class="object-fit-cover" alt="{{ categoryContent.verticalModule1.imageDescription }}" />
+                </div>
+              </a>
+            </article>
+            <article class="col-sm-6 col-md-6 col-lg-6 col-xs-6 vertical-module {{ categoryContent.verticalModule2.image === '' ? 'module-without-image' : '' }}" ng-if="categoryContent.verticalModule2.id">
+              <a ng-if="categoryContent.verticalModule2.slug" ui-sref="{{ categoryContent.verticalModule2.type }}{{ categoryContent.verticalModule2.slug ? '({slug: categoryContent.verticalModule2.slug })' : '' }}">
+                <div class="container-fluid headline {{ categoryContent.verticalModule2.image === '' ? categoryType : '' }}">
+                  <div class="headline-text">
+                    {{ categoryContent.verticalModule2.headline }}
+                  </div>
+                  <div class="writer-and-date-text">
+                    {{ categoryContent.verticalModule2.writerAndDate }}
+                  </div>
+                </div>
+                <div class="container-fluid article-image">
+                  <img ng-src="{{ categoryContent.verticalModule2.image }}" class="object-fit-cover" alt="{{ categoryContent.verticalModule2.imageDescription }}" />
+                </div>
+              </a>
+            </article>
+          </div>
+          <div class="container-fluid horizontal-module {{ categoryContent.horizontalModule.image === '' ? 'module-without-image' : '' }}" ng-if="categoryContent.horizontalModule.id">
+            <article>
+              <a ng-if="categoryContent.horizontalModule.slug" ui-sref="{{ categoryContent.horizontalModule.type }}{{ categoryContent.horizontalModule.slug ? '({slug: categoryContent.horizontalModule.slug })' : '' }}">
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 headline {{ categoryContent.horizontalModule.image === '' ? categoryType : '' }}">
+                  <div class="headline-text">
+                    {{ categoryContent.horizontalModule.headline }}
+                  </div>
+                  <div class="writer-and-date-text">
+                    {{ categoryContent.horizontalModule.writerAndDate }}
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 article-image-container">
+                  <div class="article-image">
+                    <img ng-src="{{ categoryContent.horizontalModule.image }}" class="object-fit-cover" alt="{{ categoryContent.horizontalModule.imageDescription }}" />
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
+        </div>
+  		</div>
+      <br><br>
+      <div class="container-fluid visible-xs">
+      <div class="vertical-rectangle-ad">
+        <div id='div-gpt-ad-1473939867799-1' style='height:600px; max-width:300px;margin: 0 auto;' >
+          <!-- HPU Ad here -->
+        </div>
+      </div>
+      </div>
+  		<div class="story-items">
+        <div class="row">
+          <div class="col-md-3 col-sm-3 col-xs-12 mb30">
+            <article class="vertical-module with-image {{ categoryContent.verticalModule3.image === '' ? 'module-without-image' : '' }}" ng-if="categoryContent.verticalModule3.id">
+              <a ng-if="categoryContent.verticalModule3.slug" ui-sref="{{ categoryContent.verticalModule3.type }}{{ categoryContent.verticalModule3.slug ? '({slug: categoryContent.verticalModule3.slug })' : '' }}">
+                <div class="container-fluid headline col-md-12 col-sm-12 col-xs-7 col-lg-12 {{ categoryContent.verticalModule3.image === '' ? categoryType : '' }}">
+                  <div class="headline-text">
+                    {{ categoryContent.verticalModule3.headline }}
+                  </div>
+                  <div class="writer-and-date-text">
+                    {{ categoryContent.verticalModule3.writerAndDate }}
+                  </div>
+                </div>
+                <div class="container-fluid article-image col-md-12 col-sm-12 col-xs-5 col-lg-12">
+                  <img ng-src="{{ categoryContent.verticalModule3.image }}" class="object-fit-cover" alt="{{ categoryContent.verticalModule3.imageDescription }}" />
+                </div>
+              </a>
+            </article>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <article class="vertical-module with-image {{ categoryContent.verticalModule4.image === '' ? 'module-without-image' : '' }}" ng-if="categoryContent.verticalModule4.id">
+              <a ng-if="categoryContent.verticalModule4.slug" ui-sref="{{ categoryContent.verticalModule4.type }}{{ categoryContent.verticalModule4.slug ? '({slug: categoryContent.verticalModule4.slug })' : '' }}">
+                <div class="container-fluid headline col-md-12 col-sm-12 col-xs-7 col-lg-12 {{ categoryContent.verticalModule4.image === '' ? categoryType : '' }}">
+                  <div class="headline-text">
+                    {{ categoryContent.verticalModule4.headline }}
+                  </div>
+                  <div class="writer-and-date-text">
+                    {{ categoryContent.verticalModule4.writerAndDate }}
+                  </div>
+                </div>
+                <div class="container-fluid article-image col-md-12 col-sm-12 col-xs-5 col-lg-12">
+                  <img ng-src="{{ categoryContent.verticalModule4.image }}" class="object-fit-cover" alt="{{ categoryContent.verticalModule4.imageDescription }}" />
+                </div>
+              </a>
+            </article>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <article class="vertical-module with-image {{ categoryContent.verticalModule5.image === '' ? 'module-without-image' : '' }}" ng-if="categoryContent.verticalModule5.id">
+              <a ng-if="categoryContent.verticalModule5.slug" ui-sref="{{ categoryContent.verticalModule5.type }}{{ categoryContent.verticalModule5.slug ? '({slug: categoryContent.verticalModule5.slug })' : '' }}">
+                <div class="headline col-md-12 col-sm-12 col-xs-7 col-lg-12 {{ categoryContent.verticalModule5.image === '' ? categoryType : '' }}">
+                  <div class="headline-text ng-binding">
+                    {{ categoryContent.verticalModule5.headline }}
+                  </div>
+                  <div class="writer-and-date-text ng-binding">
+                    {{ categoryContent.verticalModule5.writerAndDate }}
+                  </div>
+                </div>
+                 <div class="container-fluid article-image col-md-12 col-sm-12 col-xs-5 col-lg-12">
+                  <img ng-src="{{ categoryContent.verticalModule5.image }}" class="object-fit-cover" alt="{{ categoryContent.verticalModule5.imageDescription }}" />
+                </div>
+              </a>
+            </article>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <article class="vertical-module with-image {{ categoryContent.verticalModule6.image === '' ? 'module-without-image' : '' }}" ng-if="categoryContent.verticalModule6.id">
+              <a ng-if="categoryContent.verticalModule6.slug" ui-sref="{{ categoryContent.verticalModule6.type }}{{ categoryContent.verticalModule6.slug ? '({slug: categoryContent.verticalModule6.slug })' : '' }}">
+                <div class="container-fluid headline col-md-12 col-sm-12 col-xs-7 col-lg-12 {{ categoryContent.verticalModule6.image === '' ? categoryType : '' }}">
+                  <div class="headline-text">
+                    {{ categoryContent.verticalModule6.headline }}
+                  </div>
+                  <div class="writer-and-date-text">
+                    {{ categoryContent.verticalModule6.writerAndDate }}
+                  </div>
+                </div>
+                <div class="container-fluid article-image col-md-12 col-sm-12 col-xs-5 col-lg-12">
+                  <img ng-src="{{ categoryContent.verticalModule6.image }}" class="object-fit-cover" alt="{{ categoryContent.verticalModule6.imageDescription }}" />
+                </div>
+              </a>
+            </article>
+          </div>
+        </div>
+      </div>
+      <div class="story-items">
+        <div class="row">
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <article class="vertical-module with-image {{ categoryContent.verticalModule7.image === '' ? 'module-without-image' : '' }}" ng-if="categoryContent.verticalModule7.id">
+              <a ng-if="categoryContent.verticalModule7.slug" ui-sref="{{ categoryContent.verticalModule7.type }}{{ categoryContent.verticalModule7.slug ? '({slug: categoryContent.verticalModule7.slug })' : '' }}">
+                <div class="container-fluid headline col-md-12 col-sm-12 col-xs-7 col-lg-12 {{ categoryContent.verticalModule7.image === '' ? categoryType : '' }}">
+                  <div class="headline-text">
+                    {{ categoryContent.verticalModule7.headline }}
+                  </div>
+                  <div class="writer-and-date-text">
+                    {{ categoryContent.verticalModule7.writerAndDate }}
+                  </div>
+                </div>
+                <div class="container-fluid article-image  col-md-12 col-sm-12 col-xs-5 col-lg-12">
+                  <img ng-src="{{ categoryContent.verticalModule7.image }}" class="object-fit-cover" alt="{{ categoryContent.verticalModule7.imageDescription }}" />
+                </div>
+              </a>
+            </article>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <article class="vertical-module with-image {{ categoryContent.verticalModule8.image === '' ? 'module-without-image' : '' }}" ng-if="categoryContent.verticalModule8.id">
+              <a ng-if="categoryContent.verticalModule6.slug" ui-sref="{{ categoryContent.verticalModule8.type }}{{ categoryContent.verticalModule8.slug ? '({slug: categoryContent.verticalModule8.slug })' : '' }}">
+                <div class="container-fluid headline  col-md-12 col-sm-12 col-xs-7 col-lg-12 {{ categoryContent.verticalModule8.image === '' ? categoryType : '' }}">
+                  <div class="headline-text">
+                    {{ categoryContent.verticalModule8.headline }}
+                  </div>
+                  <div class="writer-and-date-text">
+                    {{ categoryContent.verticalModule8.writerAndDate }}
+                  </div>
+                </div>
+                <div class="container-fluid article-image  col-md-12 col-sm-12 col-xs-5 col-lg-12">
+                  <img ng-src="{{ categoryContent.verticalModule8.image }}" class="object-fit-cover" alt="{{ categoryContent.verticalModule8.imageDescription }}" />
+                </div>
+              </a>
+            </article>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <article class="vertical-module with-image {{ categoryContent.verticalModule9.image === '' ? 'module-without-image' : '' }}" ng-if="categoryContent.verticalModule9.id">
+              <a ng-if="categoryContent.verticalModule9.slug" ui-sref="{{ categoryContent.verticalModule9.type }}{{ categoryContent.verticalModule9.slug ? '({slug: categoryContent.verticalModule9.slug })' : '' }}">
+                <div class="container-fluid headline col-md-12 col-sm-12 col-xs-7 col-lg-12 {{ categoryContent.verticalModule9.image === '' ? categoryType : '' }}">
+                  <div class="headline-text">
+                    {{ categoryContent.verticalModule9.headline }}
+                  </div>
+                  <div class="writer-and-date-text">
+                    {{ categoryContent.verticalModule9.writerAndDate }}
+                  </div>
+                </div>
+                <div class="container-fluid article-image col-md-12 col-sm-12 col-xs-5 col-lg-12">
+                  <img ng-src="{{ categoryContent.verticalModule9.image }}" class="object-fit-cover" alt="{{ categoryContent.verticalModule9.imageDescription }}" />
+                </div>
+              </a>
+            </article>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <article class="vertical-module with-image {{ categoryContent.verticalModule10.image === '' ? 'module-without-image' : '' }}" ng-if="categoryContent.verticalModule10.id">
+              <a ng-if="categoryContent.verticalModule10.slug" ui-sref="{{ categoryContent.verticalModule10.type }}{{ categoryContent.verticalModule10.slug ? '({slug: categoryContent.verticalModule10.slug })' : '' }}">
+                <div class="container-fluid headline col-md-12 col-sm-12 col-xs-7 col-lg-12 {{ categoryContent.verticalModule10.image === '' ? categoryType : '' }}">
+                  <div class="headline-text">
+                    {{ categoryContent.verticalModule10.headline }}
+                  </div>
+                  <div class="writer-and-date-text">
+                    {{ categoryContent.verticalModule10.writerAndDate }}
+                  </div>
+                </div>
+                <div class="container-fluid article-image col-md-12 col-sm-12 col-xs-5 col-lg-12">
+                  <img ng-src="{{ categoryContent.verticalModule10.image }}" class="object-fit-cover" alt="{{ categoryContent.verticalModule10.imageDescription }}" />
+                </div>
+              </a>
+            </article>
+          </div>
+        </div>
+      </div>
+      <div ng-bind-html="loadMoreContent">
+        <!-- Load more content here -->
+      </div>
+      <div class="text-center"><md-button ng-if="loadMoreCount !== 0" class="btn btn-border" ng-click="loadMore()">LOAD MORE</md-button></div>
+    </section>
+  </section>
+  <!-- Center pane ends -->
+
+  <!-- Right pane begins -->
+  <aside class="right-pane">
+    <div class="container">
+      <div class="hidden-xs">
+        <div id='div-gpt-ad-1473939867799-0' style='height:600px; width:300px;margin:0 auto;'>
+          <!-- HPU ad here -->
+        </div>
+      </div>
+      <div class="container-fluid top-stories-content">
+        <div class="visible-xs">
+            <div id='div-gpt-ad-1473939867799-3' style='height:250px; width:300px;margin:0 auto;'>
+              <!-- MPU ad here -->
+            </div>
+          <div class="horz-divider"></div>
+        </div>
+        <br>
+        <h2 class="top-stories-header">
+          Most Popular
+        </h2>
+        <article class="container-fluid horizontal-module {{ topStoriesContent.horizontalModule1.image === '' ? 'module-without-image' : '' }}" ng-if="topStoriesContent.horizontalModule1.id">
+          <a ng-if="topStoriesContent.horizontalModule1.slug" ui-sref="{{ topStoriesContent.horizontalModule1.type }}{{ topStoriesContent.horizontalModule1.slug ? '({slug: topStoriesContent.horizontalModule1.slug })' : '' }}">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-7 headline">
+              <div class="headline-text">
+                {{ topStoriesContent.horizontalModule1.headline }}
+              </div>
+              <div class="writer-and-date-text">
+                {{ topStoriesContent.horizontalModule1.writerAndDate }}
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-5 article-image-container">
+              <div class="article-image">
+                <img ng-src="{{ topStoriesContent.horizontalModule1.image }}" class="object-fit-cover" alt="{{ topStoriesContent.horizontalModule1.imageDescription }}" />
+              </div>
+            </div>
+          </a>
+        </article>
+        <article class="container-fluid horizontal-module {{ topStoriesContent.horizontalModule2.image === '' ? 'module-without-image' : '' }}" ng-if="topStoriesContent.horizontalModule2.id">
+          <a ng-if="topStoriesContent.horizontalModule2.slug" ui-sref="{{ topStoriesContent.horizontalModule2.type }}{{ topStoriesContent.horizontalModule2.slug ? '({slug: topStoriesContent.horizontalModule2.slug })' : '' }}">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-7 headline">
+              <div class="headline-text">
+                {{ topStoriesContent.horizontalModule2.headline }}
+              </div>
+              <div class="writer-and-date-text">
+                {{ topStoriesContent.horizontalModule2.writerAndDate }}
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-5 article-image-container">
+              <div class="article-image">
+                <img ng-src="{{ topStoriesContent.horizontalModule2.image }}" class="object-fit-cover" alt="{{ topStoriesContent.horizontalModule2.imageDescription }}" />
+              </div>
+            </div>
+          </a>
+        </article>
+        <article class="container-fluid horizontal-module {{ topStoriesContent.horizontalModule3.image === '' ? 'module-without-image' : '' }}" ng-if="topStoriesContent.horizontalModule3.id">
+          <a ng-if="topStoriesContent.horizontalModule3.slug" ui-sref="{{ topStoriesContent.horizontalModule3.type }}{{ topStoriesContent.horizontalModule3.slug ? '({slug: topStoriesContent.horizontalModule3.slug })' : '' }}">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-7 headline">
+              <div class="headline-text">
+                {{ topStoriesContent.horizontalModule3.headline }}
+              </div>
+              <div class="writer-and-date-text">
+                {{ topStoriesContent.horizontalModule3.writerAndDate }}
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-5 article-image-container">
+              <div class="article-image">
+                <img ng-src="{{ topStoriesContent.horizontalModule3.image }}" class="object-fit-cover" alt="{{ topStoriesContent.horizontalModule3.imageDescription }}" />
+              </div>
+            </div>
+          </a>
+        </article>
+        <article class="container-fluid horizontal-module {{ topStoriesContent.horizontalModule4.image === '' ? 'module-without-image' : '' }}" ng-if="topStoriesContent.horizontalModule4.id">
+          <a ng-if="topStoriesContent.horizontalModule4.slug" ui-sref="{{ topStoriesContent.horizontalModule4.type }}{{ topStoriesContent.horizontalModule4.slug ? '({slug: topStoriesContent.horizontalModule4.slug })' : '' }}">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-7 headline">
+              <div class="headline-text">
+                {{ topStoriesContent.horizontalModule4.headline }}
+              </div>
+              <div class="writer-and-date-text">
+                {{ topStoriesContent.horizontalModule4.writerAndDate }}
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-5 article-image-container">
+              <div class="article-image">
+                <img ng-src="{{ topStoriesContent.horizontalModule4.image }}" class="object-fit-cover" alt="{{ topStoriesContent.horizontalModule4.imageDescription }}" />
+              </div>
+            </div>
+          </a>
+        </article>
+        <div class="hidden-xs up-mb15">
+          <div id='div-gpt-ad-1473939867799-2' style='height:250px; width:300px;margin: 0 auto;'>
+            <!-- MPU ad here -->
+          </div>
+        </div>
+        <article class="container-fluid horizontal-module {{ topStoriesContent.horizontalModule6.image === '' ? 'module-without-image' : '' }}" ng-if="topStoriesContent.horizontalModule6.id">
+          <a ng-if="topStoriesContent.horizontalModule5.slug" ui-sref="{{ topStoriesContent.horizontalModule5.type }}{{ topStoriesContent.horizontalModule5.slug ? '({slug: topStoriesContent.horizontalModule5.slug })' : '' }}">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-7 headline">
+              <div class="headline-text">
+                {{ topStoriesContent.horizontalModule5.headline }}
+              </div>
+              <div class="writer-and-date-text">
+                {{ topStoriesContent.horizontalModule5.writerAndDate }}
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-5 article-image-container">
+              <div class="article-image">
+                <img ng-src="{{ topStoriesContent.horizontalModule5.image }}" class="object-fit-cover" alt="{{ topStoriesContent.horizontalModule5.imageDescription }}" />
+              </div>
+            </div>
+          </a>
+        </article>
+        <article class="container-fluid horizontal-module {{ topStoriesContent.horizontalModule6.image === '' ? 'module-without-image' : '' }}" ng-if="topStoriesContent.horizontalModule6.id">
+          <a ng-if="topStoriesContent.horizontalModule6.slug" ui-sref="{{ topStoriesContent.horizontalModule6.type }}{{ topStoriesContent.horizontalModule6.slug ? '({slug: topStoriesContent.horizontalModule6.slug })' : '' }}">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-7 headline">
+              <div class="headline-text">
+                {{ topStoriesContent.horizontalModule6.headline }}
+              </div>
+              <div class="writer-and-date-text">
+                {{ topStoriesContent.horizontalModule6.writerAndDate }}
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-5 article-image-container">
+              <div class="article-image">
+                <img ng-src="{{ topStoriesContent.horizontalModule6.image }}" class="object-fit-cover" alt="{{ topStoriesContent.horizontalModule6.imageDescription }}" />
+              </div>
+            </div>
+          </a>
+        </article>
+      </div>
+    </div>
+  </aside>
+  <!-- Right pane ends -->
+</div>

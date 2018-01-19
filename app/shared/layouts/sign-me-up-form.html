@@ -1,0 +1,33 @@
+<md-dialog class="fullscreen-dialog">
+  <form ng-cloak>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-button class="md-icon-button pull-right" aria-label="Back" ng-click="close()">
+          <md-icon md-svg-src="assets/img/icons/close-dark.svg" class="close"></md-icon>
+        </md-button>
+        <div class="signup-form">
+          <img src="assets/img/unipaper-logo.png" alt="Uni Paper">
+          <h3>All student news and beyond</h3>
+          <h5 class="text-danger" ng-bind-html="signUpNewsletterMessage"></h5>
+          <form>
+            <md-input-container md-no-float class="md-block">
+              <input ng-model="signUpNewsletter.name" placeholder="Your Name">
+            </md-input-container>
+            <md-input-container md-no-float class="md-block">
+              <input ng-model="signUpNewsletter.email" placeholder="Your Email">
+            </md-input-container>
+            <md-input-container class="mt0">
+             <md-select ng-model="signUpNewsletter.location" placeholder="Location" class="md-no-underline">
+              <md-option ng-repeat="aCity in mainCities" value="{{ aCity.name }}">{{ aCity.name }}</md-option>
+            </md-select>
+            </md-input-container>
+            <md-input-container md-no-float class="md-block">
+              <input ng-model="signUpNewsletter.university" placeholder="Your University">
+            </md-input-container>
+            <md-button class="btn-bordered" ng-click="signMeUpForNewsletter()" aria-label="Sign Me Up">Sign Me Up</md-button>
+          </form>
+        </div>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>

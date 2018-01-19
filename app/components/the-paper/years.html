@@ -1,0 +1,16 @@
+<md-dialog class="fullscreen-dialog">
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-button class="md-icon-button pull-right" ng-click="close()" aria-label="showYears">
+          <md-icon md-svg-src="assets/img/icons/close-dark.svg" class="close"></md-icon>
+        </md-button>
+        <div class="locations" ng-if="monthDropdownOptions">
+          <ul>
+            <li ng-repeat="option in monthDropdownOptions">
+              <md-button class="ripple" ng-class="{ 'year-selected': {{ option.replace(' ', '') + 'SelectedForThePaper' }} }"ng-click="changeMonthAndYear($event);close();" data-value="{{ option }}" aria-label="{{ option }}">{{ option }}</md-button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </md-dialog-content>
+</md-dialog>

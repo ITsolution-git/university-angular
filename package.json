@@ -1,0 +1,19 @@
+{
+  "name": "unipaper-frontend",
+  "version": "1.0.0",
+  "description": "The University Paper - all the latest news, features, sports, what's on and celebrity interviews for students across the UK",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://abhijeetkumar@bitbucket.org/2adprosomewhatunipaper/unipaper-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/2adprosomewhatunipaper/unipaper-frontend#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

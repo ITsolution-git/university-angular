@@ -1,0 +1,19 @@
+<md-dialog class="fullscreen-dialog">
+  <md-dialog-content>
+    <div class="md-dialog-content">
+      <md-button class="md-icon-button pull-right" ng-click="close()" aria-label="close">
+        <md-icon md-svg-src="assets/img/icons/close-dark.svg" class="close"></md-icon>
+      </md-button>
+      <div class="locations">
+        <ul>
+          <li>
+            <md-button ng-class="{ 'location-selected': allCitiesSelectedForThePaper }" ng-click="changeCity($event); close();" data-value="all" aria-label="all">All</md-button>
+          </li>
+          <li ng-if="cities.length > 0" ng-repeat="city in cities">
+            <md-button ng-class="{ 'location-selected': {{ city.name }}SelectedForThePaper }" ng-click="changeCity($event); close();" data-value="{{ city.name }}" aria-label="{{ city.name }}">{{ city.name }}</md-button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </md-dialog-content>
+</md-dialog>

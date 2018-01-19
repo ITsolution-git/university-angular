@@ -1,0 +1,16 @@
+<md-dialog class="fullscreen-dialog">
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-button class="md-icon-button pull-right" ng-click="close()">
+          <md-icon md-svg-src="assets/img/icons/close-dark.svg" class="close"></md-icon>
+        </md-button>
+        <div class="locations">
+          <ul>
+            <li ng-if="cities.length > 0" ng-repeat="city in cities">
+              <md-button ng-class="{ 'location-selected': {{ city.name }}Selected }" ng-click="broadcastLocationChange($event); close();" data-value="{{ city.name }}">{{ city.name }}</md-button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </md-dialog-content>
+</md-dialog>

@@ -1,0 +1,471 @@
+<html ng-app="unipaper" xmlns="https://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="https://www.facebook.com/2008/fbml">
+  <head>
+    <!-- For enabling pretty URLs uncomment this line. Place at the top in <head> to avoid errors on refreshing pages -->
+    <base href="/">
+
+    <title>Unipaper – Read, write and share stories that matter</title>
+    <title ng-bind="metaTags.title"></title>
+
+    <!-- Meta tags-->
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="fragment" content="!">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A place to read, write, and interact with the stories that matter most to you. Every day, thousands of voices read, write, and share important stories with us on unipaper">
+    <meta name="description" content="{{ metaTags.description !== undefined ? metaTags.description : '' }}" />
+    <meta property="fb:app_id" content="1404174076277552">
+    <meta property="fb:pages" content="170449863107898" />
+	<meta ng-if="articleMetaTags" property="article:publisher" content="https://www.facebook.com/TheUniPaper" />
+    <meta ng-if="articleMetaTags" property="article:author" content="{{ articleMetaTags.authorFbPage }}" />
+    <meta property="og:title" content="{{ metaTags.title !== undefined ? metaTags.title : '' }}" />
+    <meta property="og:description" content="{{ metaTags.description !== undefined ? metaTags.description : '' }}" />
+    <meta property="og:image" content="{{ metaTags.ogImage !== undefined ? metaTags.ogImage : '/assets/img/unipaper-square-logo.jpg' }}" />
+    <meta property="og:url" content="{{ metaTags.ogUrl !== undefined ? metaTags.ogUrl : 'https://www.unipaper.co.uk' }}" />
+    <meta property="og:type" content="{{ articleMetaTags !== undefined ? 'article' : 'website' }}" />
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:image:src' content="{{ metaTags.ogImage !== undefined ? metaTags.ogImage : '/assets/img/unipaper-square-logo.jpg' }}" />
+    <meta name='twitter:site' content="@TheUniPaper" />
+    <meta name='twitter:url' content="{{ metaTags.ogUrl !== undefined ? metaTags.ogUrl : 'https://www.unipaper.co.uk' }}" />
+    <meta name='twitter:description' content="{{ metaTags.description !== undefined ? metaTags.description : 'The University Paper' }}" />
+    <meta name='twitter:title' content="{{ metaTags.title !== undefined ? metaTags.title : 'The University Paper' }}" />
+    <meta property="description" content="{{ metaTags.description !== undefined ? metaTags.description : 'The University Paper' }}" />
+
+
+    <!-- Angular Material CSS now available via Google CDN; version 1.0.7 used here -->
+    <!--<link rel="stylesheet" href="assets/libs/angular-material/css/angular-material.min.css">-->
+    <link rel="stylesheet" href="assets/libs/angular-material/css/angular-material.css">
+
+    <link rel="stylesheet" href="assets/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/libs/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Share selected text css -->
+    <link rel="stylesheet" href="assets/libs/share-selected-text/shareSelectedText.min.css">
+
+    <!-- Loader -->
+    <link rel="stylesheet" href="assets/libs/loader/loading-bar.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+    <!-- Angular -->
+    <!--<script src="assets/libs/angular-1.5.8/angular.min.js"></script>-->
+    <script src="assets/libs/angular-1.5.8/angular.js"></script>
+    <script src="assets/libs/angular-1.5.8/angular-ui-router.min.js"></script>
+    <script src="assets/libs/angular-1.5.8/angular-animate.min.js"></script>
+    <script src="assets/libs/angular-1.5.8/angular-aria.min.js"></script>
+    <script src="assets/libs/angular-1.5.8/angular-messages.min.js"></script>
+    <script src="assets/libs/angular-1.5.8/angular-sanitize.min.js"></script>
+    <script src="assets/libs/angular-1.5.8/angular-socialshare.js"></script>
+
+    <!-- Angular Material Javascript now available via Google CDN; version 1.0.7 used here -->
+    <script src="assets/libs/angular-material/js/angular-material.min.js"></script>
+
+    <!-- Mailchimp -->
+    <script src="assets/libs/mailchimp/mailchimp.js"></script>
+
+    <!-- Contentful -->
+    <script src="assets/libs/contentful/angular-contentful.min.js"></script>
+
+    <!-- Mardown to HTML - Showdown.js -->
+    <script src="//cdn.rawgit.com/showdownjs/showdown/1.4.2/dist/showdown.min.js"></script>
+
+    <!-- Share selected  text script -->
+    <script src="assets/libs/share-selected-text/shareSelectedText.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/postscribe/2.0.6/postscribe.min.js"></script>
+
+    <!-- Loader -->
+    <script src="assets/libs/loader/loading-bar.js"></script>
+
+    <!--<script src="https://gitcdn.link/repo/angular/bower-material/master/angular-material.js"></script>-->
+
+    <!-- Router,Config,Controllers,Factories,Services,Directives -->
+    <script src="app/app.module.js"></script>
+    <script src="app/app.constants.js"></script>
+    <script src="app/app.router.js"></script>
+    <script src="app/shared/layouts/utility-factory.js"></script>
+    <script src="app/shared/layouts/main-layout-controller.js"></script>
+    <script src="app/components/home/home-controller.js"></script>
+    <script src="app/components/article/article-controller.js"></script>
+    <script src="app/components/article/article-directives.js"></script>
+    <script src="app/components/category/category-controller.js"></script>
+    <script src="app/components/gallery/gallery-controller.js"></script>
+    <script src="app/components/listicle/listicle-controller.js"></script>
+    <script src="app/components/deals/deals-controller.js"></script>
+    <script src="app/components/deals/deal-detail-controller.js"></script>
+    <script src="app/components/win/wins-controller.js"></script>
+    <script src="app/components/win/win-detail-controller.js"></script>
+    <script src="app/components/tag-results/tag-results-controller.js"></script>
+    <script src="app/components/the-paper/the-paper-controller.js"></script>
+    <script src="app/components/profile/profile-controller.js"></script>
+    <script src="app/components/about-us/about-us-controller.js"></script>
+    <script src="app/components/advertise-with-us/advertise-with-us-controller.js"></script>
+    <script src="app/components/write-for-us/write-for-us-controller.js"></script>
+
+    <!-- Embedly Scripts -->
+    <!--<script async src="http://cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>-->
+    <script type="text/javascript" src="http://cdn.embed.ly/player-0.0.11.min.js"></script>
+    <script>
+      (function(w, d){
+       var id='embedly-platform', n = 'script';
+       if (!d.getElementById(id)){
+         w.embedly = w.embedly || function() {(w.embedly.q = w.embedly.q || []).push(arguments);};
+         var e = d.createElement(n); e.id = id; e.async=1;
+         e.src = ('https:' === document.location.protocol ? 'https' : 'http') + '://cdn.embedly.com/widgets/platform.js';
+         var s = d.getElementsByTagName(n)[0];
+         s.parentNode.insertBefore(e, s);
+       }
+      })(window, document);
+    </script>
+    <!-- Google DFP Ad tags -->
+    <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+    <script>
+      var googletag = googletag || {};
+      googletag.cmd = googletag.cmd || [];
+    </script>
+
+    <script>
+      window.mobilecheck = function() {
+        var check = false;
+        (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
+        return check;
+      };
+      googletag.cmd.push(function() {
+        if(window.mobilecheck() === true) {
+          googletag.defineSlot('/287105756/unipaper_mpu_topad_mobile', [300, 250], 'div-gpt-ad-1473939867799-4').addService(googletag.pubads());
+          googletag.defineSlot('/287105756/unipaper_hpu_mobile', [300, 600], 'div-gpt-ad-1473939867799-1').addService(googletag.pubads());
+          googletag.defineSlot('/287105756/unipaper_mpu_mobile', [300, 250], 'div-gpt-ad-1473939867799-3').addService(googletag.pubads());
+        } else {
+          googletag.defineSlot('/287105756/unipaper_hpu', [300, 600], 'div-gpt-ad-1473939867799-0').addService(googletag.pubads());
+          googletag.defineSlot('/287105756/unipaper_mpu', [300, 250], 'div-gpt-ad-1473939867799-2').addService(googletag.pubads());
+          googletag.defineSlot('/287105756/unipaper_super_leaderboard_rotation_1', [970, 250], 'div-gpt-ad-1473939867799-5').addService(googletag.pubads());
+        }
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+      });
+
+    </script>
+    <script>
+      if (document.documentElement.clientWidth < 768){
+        window.onscroll = function() {mobileShare()};
+        function mobileShare() {
+          var wintop = document.body.scrollTop;
+          var docheight = document.getElementById('top').clientHeight;
+          var winheight = window.innerHeight;
+          var totalScroll = (wintop/(docheight-winheight))*100;
+          document.getElementById('KW_progressBar').style.width= totalScroll + "%";
+          if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
+            if(document.getElementById("mob-main-nav") != null)
+            document.getElementById("mob-main-nav").style.display = "block";
+          } else {
+            if(document.getElementById("mob-main-nav") != null)
+              document.getElementById("mob-main-nav").style.display = "none";
+          }
+
+        }
+      }
+      else{
+        function changePos() {
+          var header = document.getElementById("header");
+          if (window.pageYOffset > 320) {
+              header.style.position = "fixed";
+              header.style.top = 0;
+              header.style.margin = 0;
+              header.style.width = '100%';
+              header.style.padding = "0 4.9% 0 5.7%";
+          } else {
+              header.style.position = "static";
+              header.style.top = "";
+          }
+        }
+        window.onscroll = changePos;
+      }
+    </script>
+
+    <!-- Add Lead Gen Code to Advertise page script start -->
+    <script type="text/javascript">
+      var currPath = window.location.pathname;
+      if(currPath.match("advertise-with-us")){
+        var script = document.createElement('script');
+        script.type='text/javascript';
+        script.src='http://www.rdeswa1.com/js/95416.js';
+        document.getElementsByTagName('head')[0].appendChild(script);
+
+        var noScript = document.createElement('noscript');
+        var noScriptImg = document.createElement('img');
+        noScriptImg.alt = "";
+        noScriptImg.src = "http://www.rdeswa1.com/95416.png";
+        noScriptImg.style = "display:none";
+        noScript.appendChild(noScriptImg);
+        document.getElementsByTagName('head')[0].appendChild(noScript);
+      }
+    </script>
+    <!-- Add Lead Gen Code to Advertise page script end -->
+
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript">
+      var currPath = window.location.pathname;
+      if(currPath.match("advertise-with-us") || currPath.match("home") || currPath.match("about-us")){
+        var script = document.createElement('script');
+        script.type='text/javascript';
+        script.setAttribute("async", "");
+        script.setAttribute("defer", "");
+        script.src='http://js.hs-scripts.com/3270324.js';
+        document.getElementsByTagName('head')[0].appendChild(script);
+      }
+    </script>
+    <!-- End of HubSpot Embed Code -->
+
+    <!-- Safari browser private window local & session storage support js start -->
+    <script>
+      // Refer to https://gist.github.com/remy/350433
+      try {
+          // Test webstorage existence.
+          if (!window.localStorage || !window.sessionStorage) throw "exception";
+          // Test webstorage accessibility - Needed for Safari private browsing.
+          localStorage.setItem('storage_test', 1);
+          localStorage.removeItem('storage_test');
+      } catch(e) {
+          (function () {
+              var Storage = function (type) {
+                  function createCookie(name, value, days) {
+                      var date, expires;
+
+                      if (days) {
+                          date = new Date();
+                          date.setTime(date.getTime()+(days*24*60*60*1000));
+                          expires = "; expires="+date.toGMTString();
+                      } else {
+                          expires = "";
+                      }
+                      document.cookie = name+"="+value+expires+"; path=/";
+                  }
+
+                  function readCookie(name) {
+                      var nameEQ = name + "=",
+                          ca = document.cookie.split(';'),
+                          i, c;
+
+                      for (i=0; i < ca.length; i++) {
+                          c = ca[i];
+                          while (c.charAt(0)==' ') {
+                              c = c.substring(1,c.length); 2480
+                          }
+
+                          if (c.indexOf(nameEQ) == 0) {
+                              return c.substring(nameEQ.length,c.length);
+                          }
+                      }
+                      return null;
+                  }
+
+                  function setData(data) {
+                      // Convert data into JSON and encode to accommodate for special characters.
+                      data = encodeURIComponent(JSON.stringify(data));
+                      // Create cookie.
+                      if (type == 'session') {
+                          createCookie(getSessionName(), data, 365);
+                      } else {
+                          createCookie('localStorage', data, 365);
+                      }
+                  }
+
+                  function clearData() {
+                      if (type == 'session') {
+                          createCookie(getSessionName(), '', 365);
+                      } else {
+                          createCookie('localStorage', '', 365);
+                      }
+                  }
+
+                  function getData() {
+                      // Get cookie data.
+                      var data = type == 'session' ? readCookie(getSessionName()) : readCookie('localStorage');
+                      // If we have some data decode, parse and return it.
+                      return data ? JSON.parse(decodeURIComponent(data)) : {};
+                  }
+
+                  function getSessionName() {
+                      // If there is no name for this window, set one.
+                      // To ensure it's unquie use the current timestamp.
+                      if(!window.name) {
+                          window.name = new Date().getTime();
+                      }
+                      return 'sessionStorage' + window.name;
+                  }
+
+                  // Initialise if there's already data.
+                  var data = getData();
+
+                  return {
+                      length: 0,
+                      clear: function () {
+                          data = {};
+                          this.length = 0;
+                          clearData();
+                      },
+                      getItem: function (key) {
+                          return data[key] === undefined ? null : data[key];
+                      },
+                      key: function (i) {
+                          // not perfect, but works
+                          var ctr = 0;
+                          for (var k in data) {
+                              if (ctr == i) return k;
+                              else ctr++;
+                          }
+                          return null;
+                      },
+                      removeItem: function (key) {
+                          delete data[key];
+                          this.length--;
+                          setData(data);
+                      },
+                      setItem: function (key, value) {
+                          data[key] = value+''; // forces the value to a string
+                          this.length++;
+                          setData(data);
+                      }
+                  };
+              };
+
+              // Replace window.localStorage and window.sessionStorage with out custom
+              // implementation.
+              var localStorage = new Storage('local');
+              var sessionStorage = new Storage('session');
+              window.localStorage = localStorage;
+              window.sessionStorage = sessionStorage;
+              // For Safari private browsing need to also set the proto value.
+              window.localStorage.__proto__ = localStorage;
+              window.sessionStorage.__proto__ = sessionStorage;
+          })();
+      }
+    </script>
+     <!-- Safari browser private window local & session storage support js end -->
+
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function()
+      {n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)}
+
+      ;if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1925422714395576');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" alt="Facebook no script error" src="https://www.facebook.com/tr?id=1925422714395576&ev=PageView&noscript=1"/></noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      (function() {
+        var u="//unipaper-piwik-server.herokuapp.com/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+    <!--[if lt IE 10]>
+      <style>
+        .ng-scope,#lo-engage-ext-container{display: none;}
+      </style>
+    <![endif]-->
+
+
+    <!-- Google AdSense -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-7953244815028776",
+        enable_page_level_ads: true
+      });
+    </script>
+    <!-- Google AdSense end -->
+  </head>
+
+  <body>
+    <!-- Facebook comments snipper begins -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7&appId=1404174076277552";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- Facebook comments snipper ends -->
+
+    <!-- Google analytics begins -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-84936432-1', 'auto');
+    </script>
+    <!-- Google analytics ends -->
+
+    <!-- Quantcast Tag -->
+    <script type="text/javascript">
+      var _qevents = _qevents || [];
+
+      (function() {
+        var elem = document.createElement('script');
+        elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+        elem.async = true;
+        elem.type = "text/javascript";
+        var scpt = document.getElementsByTagName('script')[0];
+        scpt.parentNode.insertBefore(elem, scpt);
+      })();
+
+      _qevents.push({
+        qacct:"p-nEHMApnkBgebN"
+      });
+    </script>
+    <noscript>
+      <div style="display:none;">
+        <img src="//pixel.quantserve.com/pixel/p-nEHMApnkBgebN.gif" border="0" height="1" width="1" alt="Quantcast"/>
+      </div>
+    </noscript>
+    <!-- End Quantcast tag -->
+
+    <!-- Set up the path for the initial page view -->
+    <script>
+      var _hsq = window._hsq = window._hsq || [];
+      _hsq.push(['setPath', window.location.pathname+window.location.search]);
+      var hubSpotInitialTrackCompleted = 1; // this variable status is checked on every partial to prevent dual entries for same page
+    </script>
+
+    <!-- Load the HubSpot tracking code -->
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/3270324.js"></script>
+    <!-- End of HubSpot Embed Code -->
+
+    <div ui-view>
+
+    </div>
+
+    <!-- IE Browser verion 9 & below action start -->
+    <script type="text/javascript">
+      window.onload = function () {
+      if(navigator.appName.indexOf("Internet Explorer") !=-1){
+          if(navigator.appVersion.indexOf("MSIE 9") !=-1 || navigator.appVersion.indexOf("MSIE 8") !=-1 || navigator.appVersion.indexOf("MSIE 7") !=-1 || navigator.appVersion.indexOf("MSIE 6") !=-1){
+            document.body.innerHTML = "";
+            document.body.innerHTML += '<div class="un-ie-popup"><div class="un-ie-popup-inner"><p>your browser is out of date, and may not be compatible with out website. Please update your browser to access Unipaper site</p></div></div>';
+          }
+      }
+    }
+    </script>
+    <!-- IE Browser verion 9 & below action end -->
+
+  </body>
+</html>

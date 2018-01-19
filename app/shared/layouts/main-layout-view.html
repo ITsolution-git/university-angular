@@ -1,0 +1,155 @@
+<div class="wrap" id="top">
+  <!-- Header begins -->
+  <header>
+    <div class="header">
+      <div class="top-ad">
+        <div class="header-leaderboard-ad-container">
+          <div id='div-gpt-ad-1473939867799-5' style='height:250px; width:970px;' class="hidden-xs">
+            <!-- Super leaderboard ad here -->
+          </div>
+          <div id='div-gpt-ad-1473939867799-4' style='height:250px; width:300px;' class="visible-xs">
+
+          </div>
+        </div>
+      </div>
+      <div class="city-dropdown-and-login-bar hidden-xs">
+        <div class="col-sm-6 col-md-9 col-lg-9 no-padding city-dropdown-container">
+          <md-button class="ripple loc-txt" ng-if="cities.length > 0" ng-click="showLocations($event)" >
+               <md-icon md-svg-src="assets/img/icons/pin.svg" class="pin-icn"></md-icon> {{ currentCity.name }} <md-icon md-svg-src="assets/img/icons/dropdown-arw.svg" class="downarw-icn"></md-icon>
+          </md-button>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-3 login-and-write-for-us-container">
+          <div class="col-sm-6 col-md-6 col-lg-6 login-button text-center">
+            <a href="http://unipaper-writers.herokuapp.com/" target="_blank">
+              Log in
+            </a>
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-6 write-for-us-button text-center" target="_blank">
+            <a href="http://unipaper-writers.herokuapp.com/" target="_blank">
+              Write for us
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-container hidden-xs" id="header">
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="navbar-header">
+            <a class="navbar-brand hidden-xs" ui-sref="home">
+              <img src="assets/img/unipaper-logo.png">
+              <!--<md-icon md-svg-src="assets/img/tup-logo.svg" alt="The University Paper"></md-icon>-->
+            </a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a ui-sref="category({type: 'news'})">News</a></li>
+              <li><a ui-sref="category({type: 'sports'})">Sports</a></li>
+              <li><a ui-sref="category({type: 'entertainment'})">Entertainment</a></li>
+              <li><a ui-sref="deals">Deals</a></li>
+              <li><a ui-sref="wins">Win</a></li>
+              <li><a ui-sref="the-paper">The Paper</a></li>
+              <li><a href="http://jobs.unipaper.co.uk/" target="_blank">Jobs <span><img src="assets/img/icons/star-yellow.svg" alt=""> New!</span></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="https://www.facebook.com/TheUniPaper" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+              <li><a href="https://twitter.com/TheUniPaper" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+              <li><a href="#" ng-click="showSearch = !showSearch" class="search-btn no-margin"><md-icon md-svg-src="assets/img/icons/search.svg" class="pin-icn"></md-icon></a></li>
+            </ul>
+            <md-toolbar class="md-hue-1 search-bar" ng-show="showSearch">
+              <div class="md-toolbar-tools">
+                <md-input-container md-theme="input" flex>
+                  <label>&nbsp;</label>
+                  <input id="searchBar1" ng-model="search.tag" placeholder="What do you want to read about?">
+                </md-input-container>
+                <md-button ng-click="showSearch = !showSearch; search.tag = ''" aria-label="Back"><md-icon md-svg-src="assets/img/icons/cancel.svg" class="pin-icn"></md-icon></md-button>
+              </div>
+            </md-toolbar>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- Header ends -->
+
+  <!-- Main Container begins -->
+  <div class="container" ng-show="$root.showContent == true">
+    <!-- Main content area begins -->
+    <div ui-view class="container content-area" ng-hide="mainContent">
+      <!-- Partials load here -->
+    </div>
+    <!-- Main content area ends -->
+    <!-- Footer begins -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-left">
+            <md-icon md-svg-src="assets/img/icons/footer-icn.svg" class="footernew-logo"></md-icon>
+            <span class="footer-txt">Don’t miss out</span>
+            <md-button class="btn btn-border" ng-click="showSignupForm($event)">SIGN ME UP</md-button>
+        </div>
+        <div class="visible-xs horz-divider"></div>
+        <div class="footer-right">
+          <div class="footerbtm-links">
+            <a ui-sref="about-us">About Us</a>
+            <a ui-sref="advertise-with-us">Advertise with us</a>
+            <a ui-sref="write-for-us">Write for us</a>
+          </div>
+        </div>
+        <div class="ftr-social-links">
+          <a href="https://www.facebook.com/TheUniPaper" target="_blank"><i class="fa fa-facebook"></i></a>
+          <a href="https://twitter.com/TheUniPaper" target="_blank"><i class="fa fa-twitter"></i></a>
+          <a href="#" ng-click="showSearch1 = !showSearch1" class="search-btn no-margin"><md-icon md-svg-src="assets/img/icons/search.svg" class="pin-icn"></md-icon></a>
+          <md-toolbar class="md-hue-1 search-bar" ng-show="showSearch1">
+            <div class="md-toolbar-tools">
+              <md-input-container md-theme="input" flex>
+                <label>&nbsp;</label>
+                <input id="searchBar2" ng-model="search.tag" placeholder="What do you want to read about?">
+              </md-input-container>
+              <md-button ng-click="showSearch1 = !showSearch1; search.tag = ''" aria-label="Back"><md-icon md-svg-src="assets/img/icons/cancel.svg" class="pin-icn"></md-icon></md-button>
+            </div>
+          </md-toolbar>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer ends -->
+  </div>
+  <!-- Main Container ends -->
+</div>
+<div class="visible-xs">
+  <nav class="mob-navbar" id="mob-nav">
+    <div class="KW_progressContainer">
+      <div id="KW_progressBar">
+      </div>
+    </div>
+    <a href="#" class="mob-menu-link" ng-click="openLeftMenu()">
+      <i id="like" ng-class="{'close-icn': liked, 'menu-icn': !liked}" ng-click="liked=!liked"></i>
+    </a> <md-icon md-svg-src="assets/img/icons/u_logo-mob.svg" ui-sref="home"></md-icon><!--<img src="assets/img/icons/U_logo-mob.png" alt="" />-->
+    <md-button class="ripple loc-txt" ng-click="showLocations($event)">
+      <md-icon md-svg-src="assets/img/icons/mob-pin.svg" class="pin-icn"></md-icon> {{ currentCity.name }} <md-icon md-svg-src="assets/img/icons/mob-dropdown-arw.svg" class="downarw-icn"></md-icon>
+    </md-button>
+    <div class="pull-right">
+      <a href="http://unipaper-writers.herokuapp.com/" target="_blank">
+        Log in
+      </a>
+      <a href="http://unipaper-writers.herokuapp.com/" target="_blank">
+        Write for us
+      </a>
+    </div>
+  </nav>
+</div>
+<md-sidenav md-component-id="left" class="md-sidenav-left">
+  <div class="sidenav-content">
+    <ul>
+      <li><a ui-sref="category({type: 'news'})" ng-click="navclose($event)">News</a></li>
+      <li><a ui-sref="category({type: 'sports'})" ng-click="navclose($event)">Sports</a></li>
+      <li><a ui-sref="category({type: 'entertainment'})" ng-click="navclose($event)">Entertainment</a></li>
+      <li><a ui-sref="deals" ng-click="navclose($event)">Deals</a></li>
+      <li><a ui-sref="wins" ng-click="navclose($event)">Win</a></li>
+      <li><a ui-sref="the-paper" ng-click="navclose($event)">The Paper</a></li>
+      <li><a href="http://jobs.unipaper.co.uk/" target="_blank" ng-click="navclose($event)">Jobs <span><img src="assets/img/icons/star-yellow.svg" alt=""> New!</span></a></li>
+    </ul>
+    <ul class="inline-links">
+      <li><a ui-sref="about-us" ng-click="navclose($event)">About Us</a></li>
+      <li><a ui-sref="advertise-with-us" ng-click="navclose($event)">Advertise with us</a></li>
+      <li><a ui-sref="write-for-us" ng-click="navclose($event)">Write for us</a></li>
+    </ul>
+  </div>
+</md-sidenav>
