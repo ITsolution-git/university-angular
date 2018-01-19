@@ -178,8 +178,9 @@ unipaper.controller('tagResultsController', function($scope, contentful, environ
   /**
     * This function triggers search() with a skip value. It is triggered on click of load more button in the view
     */
-  var loadMore = function() {
+  $scope.loadMore = function() {
     $scope.loadMoreCount--;
+    $scope.skip += 12;
     search(8, fillLoadMoreContent);
   }
 
@@ -214,11 +215,6 @@ unipaper.controller('tagResultsController', function($scope, contentful, environ
       count++;
     }
   }
-
-  $scope.loadMore = function() {
-    $scope.loadMoreCount--;
-    search(8, fillLoadMoreContent);
-  };
 
   /**
     * hubSpotInitialTrackCompleted will have the value 1 if this page is the initial load of the website
