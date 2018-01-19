@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README #
 
 Welcome to the README for the Unipaper front end website.
@@ -42,4 +43,6 @@ gulp
 
 * Speak to @abhijeetkumar or @bhuvana87 about the code.
 * Speak to @nagarajanp2341 about the business requirements.
+=======
+>>>>>>> 6a2589a0565a9f4d0fd337342bf2f410bf14ea3e
 # ben
